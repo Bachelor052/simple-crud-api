@@ -3,10 +3,6 @@ const http = require('http');
 const PORT = process.env.PORT || 5000;
 
 
-
-
-
-    
 test("check create a person with params", () => {
     http.request({
         hostname: 'localhost',
