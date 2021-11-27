@@ -7,7 +7,6 @@
   "main": "app.js",
   "scripts": {
     "test": "jest --runInBand",
-    "coverage": "jest --coverage --verbose false --runInBand",
     "start:dev": "nodemon app.js",
     "start:prod": "webpack --mode production && cd dist && node app.bundle.js"
   },
