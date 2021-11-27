@@ -1,8 +1,7 @@
 require('dotenv').config();
 const http = require("http");
 const url = require("url");
-const controller = require("./controller");
-
+const controller = require("./utils/controller");
 const PORT = process.env.PORT || 5000;
 
 const server = http.createServer(async (req, res) => {
@@ -34,9 +33,9 @@ const server = http.createServer(async (req, res) => {
                 }));
             })
         } else {
-            let errorMessage = `uuid is incorrect: \"${get_id}\". Must be a positive integer`;
+            let errorMessage = `uuid is incorrect: \"${get_id}\". Must be a non-negative integer`;
             if (temp.split("?")[0].length < 1) {
-                errorMessage = "uuid is missing! Must be a positive integer";
+                errorMessage = "uuid is missing! Must be a non-negative integer";
             }
             if (errorMessage.length > 1) toBe = "are"
             res.writeHead(400, {
@@ -104,7 +103,7 @@ const server = http.createServer(async (req, res) => {
             })
         } else {
             let errorMessage = "";
-            if (isNaN(mod_id)) errorMessage = ` uuid is incorrect: \"${mod_id}\". Must be a positive integer`;
+            if (isNaN(mod_id)) errorMessage = ` uuid is incorrect: \"${mod_id}\". Must be a non-negative integer`;
 
             res.writeHead(400, {
                 "Content-Type": "application/json"
@@ -135,7 +134,7 @@ const server = http.createServer(async (req, res) => {
             res.writeHead(404, {
                 "Content-Type": "application/json"
             });
-            res.end(JSON.stringify(`wrong params.  uuid is incorrect: \"${del_id}\". Must be a positive integer`));
+            res.end(JSON.stringify(`wrong params.  uuid is incorrect: \"${del_id}\". Must be a non-negative integer`));
         }
     } else {
         res.writeHead(404, {
