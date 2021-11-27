@@ -1,10 +1,14 @@
 {
+  "dependencies": {
+    "dotenv": "^10.0.0"
+  },
   "name": "simple-crud-api",
   "version": "1.0.0",
-  "description": "\"# simple-crud-api\"",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --runInBand",
+    "start:dev": "nodemon app.js",
+    "start:prod": "webpack --mode production && cd dist && node app.bundle.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +19,12 @@
   "bugs": {
     "url": "https://github.com/MasterTeam1997/simple-crud-api/issues"
   },
-  "homepage": "https://github.com/MasterTeam1997/simple-crud-api#readme"
+  "homepage": "https://github.com/MasterTeam1997/simple-crud-api#readme",
+  "description": "",
+  "devDependencies": {
+    "jest": "^27.3.1",
+    "nodemon": "^2.0.15",
+    "webpack": "^5.64.4",
+    "webpack-cli": "^4.9.1"
+  }
 }
